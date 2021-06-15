@@ -33,7 +33,8 @@
 
     <div class="container">
       <h1>Criar Diarista</h1>
-      <form>
+      <form action="{{ route('diaristas.store') }}" method="POST" enctype="multipart/form-data">
+        @csrf
         <div class="mb-3">
             <label for="nome_completo" class="form-label">Nome Completo</label>
             <input type="text" class="form-control" id="nome_completo" name="nome_completo" required maxlength="100">
@@ -61,6 +62,10 @@
         <div class="mb-3">
             <label for="complemento" class="form-label">Complemento</label>
             <input type="text" class="form-control" id="complemento" name="complemento" maxlength="50">
+        </div>
+        <div class="mb-3">
+            <label for="cep" class="form-label">CEP</label>
+            <input type="text" class="form-control" id="cep" name="cep" required maxlength="9">
         </div>
         <div class="mb-3">
             <label for="bairro" class="form-label">Bairro</label>
