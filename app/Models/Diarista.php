@@ -10,4 +10,16 @@ class Diarista extends Model
     use HasFactory;
 
     protected $fillable = ['nome_completo', 'cpf', 'email', 'telefone', 'logradouro', 'numero', 'complemento', 'bairro', 'cidade', 'estado', 'cep', 'codigo_ibge', 'foto_usuario'];
+
+    static public function buscaPorCodigoIbge(int $codigoIbge)
+    {
+        return self::where('codigo_ibge', $codigoIbge)->limit(6)->get();
+    }
+
+    static public function quantidadePorCodigoIbge(int $codigoIbge)
+    {
+        $quantidade = self::where('codigo_ibge', $codigoIbge)->count();
+
+        return $quantidade > 6 ? $quantidade - 6 : 0;
+    }
 }
