@@ -11,6 +11,8 @@ class Diarista extends Model
 
     protected $fillable = ['nome_completo', 'cpf', 'email', 'telefone', 'logradouro', 'numero', 'complemento', 'bairro', 'cidade', 'estado', 'cep', 'codigo_ibge', 'foto_usuario'];
 
+    protected $visible = ['nome_completo', 'cidade', 'foto_usuario'];
+
     static public function buscaPorCodigoIbge(int $codigoIbge)
     {
         return self::where('codigo_ibge', $codigoIbge)->limit(6)->get();
